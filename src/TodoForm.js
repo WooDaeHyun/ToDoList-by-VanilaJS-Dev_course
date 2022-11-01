@@ -14,9 +14,13 @@ function TodoForm({ $target, onSubmit }) {
       $form.addEventListener('submit', e => {
         e.preventDefault();
 
-        const text = $form.querySelector('input[name=todo]').value;
+        const $todo = $form.querySelector('input[name=todo]')
+        const text = $todo.value;
         
-        onSubmit(text);
+        if (text.length > 1){
+          $todo.value = '';
+          onSubmit(text);
+        }
       })
       isInit = true;
     }
