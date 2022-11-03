@@ -4,6 +4,9 @@ import TodoList from "./TodoList.js";
 import { setItem } from "./storage.js";
 
 export default function App({ $target, initialState }) {
+  if (!new.target) {
+    throw "Error : Component must be called with new operater!";
+  }
   new Header({
     $target,
     text: "Simple Todo List",

@@ -1,4 +1,7 @@
 export default function TodoForm({ $target, onSubmit }) {
+  if (!new.target) {
+    throw "Error : Component must be called with new operater!";
+  }
   const $form = document.createElement("form");
 
   $target.appendChild($form);
